@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Hello World Web App";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hello, World!</h1>
+    <p class="lead">Welcome to my ASP.NET Core Web Application!</p>
+    <p>This is perfect preparation for my Datacom interview! 🚀</p>
+    
+    <div class="mt-4">
+        <h3>Interactive Greeting</h3>
+        <form method="post" class="mt-3">
+            <div class="mb-3">
+                <input type="text" name="userName" class="form-control" placeholder="Enter your name" style="max-width: 300px; margin: 0 auto;" />
+            </div>
+            <button type="submit" class="btn btn-primary">Say Hello</button>
+        </form>
+        
+        @if (!string.IsNullOrEmpty(Model.GreetingMessage))
+        {
+            <div class="mt-3 alert alert-success">
+                @Model.GreetingMessage
+            </div>
+        }
+    </div>
+    
+    <div class="mt-4">
+        <h3>About This App</h3>
+        <ul class="list-unstyled">
+            <li>✅ Built with ASP.NET Core 8.0</li>
+            <li>✅ Uses Razor Pages with POST handling</li>
+            <li>✅ Ready for Azure deployment</li>
+            <li>✅ Demonstrates modern web development skills</li>
+        </ul>
+    </div>
+    
+    <div class="mt-4">
+        <p>Built by: <strong>Mahfuz Rahman</strong></p>
+        <p>Technology: <strong>C# and .NET</strong></p>
+    </div>
+</div>

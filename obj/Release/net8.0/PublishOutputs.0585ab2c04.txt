@@ -1,0 +1,7 @@
+/Users/mrah406/Projects/dotnet_projects/HelloWorldWeb/publish/HelloWorldWeb
+/Users/mrah406/Projects/dotnet_projects/HelloWorldWeb/publish/appsettings.Development.json
+/Users/mrah406/Projects/dotnet_projects/HelloWorldWeb/publish/appsettings.json
+/Users/mrah406/Projects/dotnet_projects/HelloWorldWeb/publish/HelloWorldWeb.dll
+/Users/mrah406/Projects/dotnet_projects/HelloWorldWeb/publish/HelloWorldWeb.deps.json
+/Users/mrah406/Projects/dotnet_projects/HelloWorldWeb/publish/HelloWorldWeb.runtimeconfig.json
+/Users/mrah406/Projects/dotnet_projects/HelloWorldWeb/publish/HelloWorldWeb.pdb
