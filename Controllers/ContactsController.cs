@@ -108,4 +108,29 @@ namespace HelloWorldWeb.Controllers
             return _context.Contacts.Any(e => e.Id == id);
         }
     }
+
+    [HttpPost("setup")]
+    public async Task<ActionResult> SetupDatabase()
+    {
+        try
+        {
+            await _context.Database.EnsureCreatedAsync();
+            
+            // Add some test data
+            if (!_context.Contacts.Any())
+            {
+                _context.Contacts.AddRange(
+                    new Contact { Name = "John Doe", Email = "john@example.com", Phone = "123-456-7890", Company = "Test Corp" },
+                    new Contact { Name = "Jane Smith", Email = "jane@example.com", Phone = "098-765-4321", Company = "Demo Inc" }
+                );
+                await _context.SaveChangesAsync();
+            }
+            
+            return Ok("Database setup completed successfully!");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Database setup failed: {ex.Message}");
+        }
+    }
 }

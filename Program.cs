@@ -28,20 +28,4 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllers();
 
-// Create database tables if they don't exist
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<ContactDbContext>();
-    try
-    {
-        // This will create tables based on your models
-        context.Database.EnsureCreated();
-    }
-    catch (Exception ex)
-    {
-        // Log but don't crash the app
-        Console.WriteLine($"Database setup info: {ex.Message}");
-    }
-}
-
-app.Run();
+app.Run(); // Just run the app - no database creation
