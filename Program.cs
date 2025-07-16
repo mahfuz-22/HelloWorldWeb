@@ -4,21 +4,22 @@ using HelloWorldWeb.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add Key Vault configuration
-if (!builder.Environment.IsDevelopment())
-{
-    builder.Configuration.AddAzureKeyVault(
-        new Uri("https://hellokv-1752670769.vault.azure.net/"),
-        new DefaultAzureCredential());
-}
+// Key Vault configuration can be added later
+// For now, using App Service Configuration
 
 // Add services to the container
 builder.Services.AddRazorPages();
 builder.Services.AddControllers(); // Add support for API controllers
 
 // Add Entity Framework
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (string.IsNullOrEmpty(connectionString))
+{
+    throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+}
+
 builder.Services.AddDbContext<ContactDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
